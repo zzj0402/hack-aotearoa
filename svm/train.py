@@ -3,7 +3,7 @@ def read_csv(filename):
     with open(filename) as f:
         return f.read().splitlines()
 
-oasis_input_list=read_csv('oasis+_dev.csv')
+oasis_input_list=read_csv('data/oasis+_dev_99.csv')
 print(oasis_input_list[0])
 def num(s):
     if s=='':
@@ -31,5 +31,4 @@ clf.fit(X, y)
 def save_model(model, filename):
     with open(filename, 'wb') as f:
         pickle.dump(model, f)
-save_model(clf,'svm_model_9.pkl')
-print(clf.predict([[19,0,15,176,49,30.5,39.28,5535,1,0]]))
+save_model(clf,'svm/svm_model_99.pkl')

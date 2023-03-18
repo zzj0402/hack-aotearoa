@@ -2,7 +2,7 @@ def read_csv(filename):
     with open(filename) as f:
         return f.read().splitlines()
 
-test_input=read_csv('Oasis+Dev.csv')
+test_input=read_csv('Oasis DEV99.csv')
 features=test_input[0].split(',')
 for i in range(len(features)):
     print(i,features[i])
@@ -40,4 +40,4 @@ def write_data(data, labels,filename):
             print(data[i],labels[i])
             f.write(data[i]+','+labels[i]+'\n')
 
-write_data(data,labels,'oasis+_dev.csv')
+write_data(data,labels,'data/oasis+_dev_99.csv')

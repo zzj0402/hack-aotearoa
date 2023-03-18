@@ -3,7 +3,7 @@ def read_csv(filename):
     with open(filename) as f:
         return f.read().splitlines()
 
-oasis_input_list=read_csv('data/oasis+_dev_99.csv')
+oasis_input_list=read_csv('data/oasis+_dev_999.csv')
 print(oasis_input_list[0])
 def num(s):
     if s=='':
@@ -26,9 +26,17 @@ print(labels[0])
 from sklearn import svm
 X = converted_data
 y = labels
+import numpy as np
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.33, random_state=42)
 clf = svm.SVC()
-clf.fit(X, y)
+clf.fit(X_train, y_train)
 def save_model(model, filename):
     with open(filename, 'wb') as f:
         pickle.dump(model, f)
-save_model(clf,'svm/svm_model_99.pkl')
+save_model(clf,'svm/svm_model_999.pkl')
+from sklearn.metrics import classification_report
+predicts=clf.predict(X_test)
+c_r=classification_report(y_test, predicts)
+print(c_r)

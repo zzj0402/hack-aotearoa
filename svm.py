@@ -1,3 +1,4 @@
+import pickle
 def read_csv(filename):
     with open(filename) as f:
         return f.read().splitlines()
@@ -27,4 +28,8 @@ X = converted_data
 y = labels
 clf = svm.SVC()
 clf.fit(X, y)
+def save_model(model, filename):
+    with open(filename, 'wb') as f:
+        pickle.dump(model, f)
+save_model(clf,'svm_model_9.pkl')
 print(clf.predict([[19,0,15,176,49,30.5,39.28,5535,1,0]]))

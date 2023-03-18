@@ -105,3 +105,4 @@ venv.bak/
 
 # MacOS file
 .DS_Store
+*.pkl
